@@ -1,0 +1,13 @@
+This is the api end point code: 
+
+def get_order_details(order_id):
+    url = "http://localhost:5000/order_info"  # Change the URL if your Flask app is hosted elsewhere
+    params = {'order_id': order_id}
+    response = requests.post(url, params=params)
+
+    if response.status_code == 200:
+        return response.json()['Result'][0]
+    else:
+        return f"Error: Unable to fetch order details. Status code: {response.status_code}"
+
+
