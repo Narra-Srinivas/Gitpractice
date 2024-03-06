@@ -1,0 +1,22 @@
+app = Flask(_name_)
+
+@app.route('/order_info', methods=['POST'])
+def get_order_details():
+    order_id = request.json.get('order_id')
+
+    # Replace this with your actual implementation to fetch order details from a database or other data source
+    order_details = {
+        'order_id': order_id,
+        'total_amount': 299.99,
+        'delivery_status': 'Shipped',
+        'current_location': 'Warehouse B',
+        'expected_delivery_date': '2023-01-18',
+        'customer_name': 'Alice Brown',
+        'product_id': 4,
+        'product_name': 'Tablet'
+    }
+
+    return jsonify({'Result': [order_details]})
+
+if _name_ == '_main_':
+    app.run(debug=True)
